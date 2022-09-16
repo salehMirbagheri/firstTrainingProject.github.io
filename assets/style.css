@@ -1,0 +1,601 @@
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+*,
+::after,
+::before {
+  box-sizing: inherit;
+}
+::-webkit-scrollbar {
+  width: 1rem;
+  background-color: var(--color-primary-light);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+}
+:root {
+  --color-white: #fff;
+  --color-light: #f4f4f4;
+  --color-dark: #525252;
+  --color-black: #141415;
+  --color-primary: #f24e1e;
+  --color-primary-light: hsl(14, 89%, 53%, 12%);
+  --color-success: #29f5a6;
+  --color-warning: #ffce31;
+
+  --transition: all 0.3s ease;
+}
+
+body {
+  line-height: 1.6;
+  font-size: 1.6rem;
+  direction: rtl;
+  font-family: iranyekan !important;
+  background: var(--color-white);
+  color: var(--color-dark);
+}
+.container {
+  width: 100%;
+  padding: 0 1.5rem;
+  margin: 0 auto;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-black);
+  line-height: 1.2;
+}
+h1 {
+  font-size: 3.8rem;
+}
+h2 {
+  font-size: 2.6rem;
+}
+h3 {
+  font-size: 1.6rem;
+}
+h4 {
+  font-size: 1.2rem;
+}
+h5 {
+  font-size: 0.86rem;
+}
+a {
+  text-decoration: none;
+}
+section {
+  padding: 10rem 0 7rem;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+section h1 {
+  text-align: center;
+  display: block;
+  margin-bottom: 5rem;
+}
+img {
+  width: 100%;
+}
+.btn {
+  padding: 1.4rem 3.4rem;
+  font-size: 1.1rem;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  display: inline-block;
+  margin: 2rem 0;
+  transition: var(--transition);
+}
+.btn:hover {
+  box-shadow: 0 2rem 2rem var(--color-primary-light);
+}
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 0.8rem;
+}
+
+/* ===== navBar ===== */
+nav {
+  width: 100%;
+  height: 5rem;
+  background-color: var(--color-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  border-bottom: 0.1rem solid var(--color-light);
+}
+nav.showBoxShadow {
+  box-shadow: 0 0.6rem 1rem var(--color-primary-light);
+  border: none;
+}
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+nav button {
+  display: none;
+}
+nav h3 {
+  color: var(--color-primary);
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+nav .container ul {
+  display: flex;
+  height: 100%;
+}
+nav .container ul li a {
+  height: 100%;
+  width: 9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-black);
+  position: relative;
+  transition: var(--transition);
+}
+nav .container ul li a:hover {
+  color: var(--color-primary);
+}
+nav .container ul li a.active {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* ===== landing ===== */
+section.landing {
+  display: grid;
+  place-items: center;
+  position: relative;
+  top: 5rem;
+  padding-bottom: 14rem;
+}
+section.landing .container {
+  display: grid;
+  grid-template-columns: 5rem auto 30rem;
+}
+section.landing .socials {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 5rem;
+}
+section.landing .socials a {
+  font-size: 1.5rem;
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  padding: 0.3rem;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--transition);
+}
+section.landing .socials a:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+section.landing .info h1 {
+  text-align: right;
+  margin: 0;
+  font-weight: bold;
+}
+section.landing .info h3 {
+  margin: 2.5rem 0 1.5rem;
+  font-weight: bold;
+}
+section.landing .info p {
+  width: 65rem;
+}
+section.landing .profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section.landing .profile .outerCircle {
+  width: 30rem;
+  height: 30rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 50%;
+  position: relative;
+  animation: move 20s infinite linear;
+}
+section.landing .profile .outerCircle i {
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 1rem var(--color-primary-light);
+}
+section.landing .profile .outerCircle i:nth-child(1) {
+  left: calc(50% - 2rem);
+  top: -2rem;
+}
+section.landing .profile .outerCircle i:nth-child(2) {
+  top: calc(50% - 2rem);
+  right: -2rem;
+}
+section.landing .profile .outerCircle i:nth-child(3) {
+  top: calc(50% - 2rem);
+  left: -2rem;
+}
+section.landing .profile .outerCircle i:nth-child(4) {
+  left: calc(50% - 2rem);
+  bottom: -2rem;
+}
+section.landing .profile .innerCircle {
+  position: absolute;
+  width: 25rem;
+  height: 25rem;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: var(--transition);
+}
+section.landing .profile .innerCircle:hover {
+  transform: scale(1.05);
+}
+@keyframes move {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== About ===== */
+section.about {
+  background-color: var(--color-light);
+}
+section.about .container {
+  display: grid;
+  grid-template-columns: 35rem auto;
+  gap: 5rem;
+}
+section.about p {
+  margin-bottom: 1rem;
+}
+section.about .container .readMoreContent {
+  display: none;
+}
+section.about .container .image {
+  border-radius: 0.9rem;
+  transition: var(--transition);
+}
+section.about .container .image img {
+  border-radius: 0.9rem;
+}
+.image:hover {
+  transform: scale(1.05);
+}
+section.about .container .readMore {
+  display: block;
+  margin: 1rem 0 2rem;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: var(--transition);
+}
+section.about .container .readMore:hover {
+  text-decoration: underline;
+}
+/* ===== Skills ===== */
+section.skills .container {
+  width: 60%;
+}
+section.skills .skill {
+  margin-bottom: 1rem;
+}
+section.skills .skill .head {
+  background-color: var(--color-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-white);
+  padding: 1.6rem;
+  cursor: pointer;
+  font-size: 2rem;
+  border-radius: 0.8rem 0.8rem 0 0;
+}
+section.skills .skill .head h4 {
+  color: var(--color-white);
+  font-size: 2rem;
+}
+section.skills .skill .head .right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+section.skills .container .skill .items {
+  display: none;
+}
+
+section.skills .skill .item {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1rem;
+  padding: 1.6rem;
+  background-color: var(--color-light);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  transition: var(--transition);
+}
+.item h5 {
+  font-size: 1.8rem;
+}
+section.skills .skill .item:hover {
+  background-color: var(--color-white);
+}
+.progressArea {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 6rem;
+}
+.progressArea h5 {
+  font-size: 1.5rem;
+}
+.progressBar {
+  width: 90%;
+  height: 1.5rem;
+  background-color: var(--color-primary-light);
+}
+section.skills .item .progressBar .progress {
+  height: 100%;
+  width: 85%;
+  background-color: var(--color-primary);
+}
+section.skills .item:nth-child(3) .progressBar .progress {
+  width: 70%;
+}
+section.skills .item:nth-child(4) .progressBar .progress {
+  width: 70%;
+}
+section.skills .item:nth-child(5) .progressBar .progress {
+  width: 80%;
+}
+section.skills .item:nth-child(6) .progressBar .progress {
+  width: 5%;
+}
+
+/* ===== Services ===== */
+.service h3 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+section.services {
+  background-color: var(--color-light);
+}
+section.services .container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+section.services .container .service {
+  background-color: var(--color-white);
+  padding: 3rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  transition: var(--transition);
+}
+section.services .container .service:hover {
+  box-shadow: 0rem 3rem 3rem var(--color-primary-light);
+}
+section.services .container .service i {
+  font-size: 2rem;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section.services .container .service:nth-child(2) i {
+  background-color: var(--color-warning);
+}
+section.services .container .service:nth-child(3) i {
+  background-color: var(--color-success);
+}
+/* ===== Comments ===== */
+section.comments {
+  background-color: var(--color-light);
+}
+section.comments .container {
+  width: 70rem;
+}
+section.comments .dragLine {
+  display: flex;
+  align-items: center;
+  /* flex-direction: column; */
+}
+section.comments .comment {
+  background-color: var(--color-white);
+  padding: 3rem 0rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+section.comments .comment .head {
+  display: flex;
+  justify-content: space-between;
+  /* gap: 40rem; */
+  align-items: flex-start;
+  padding: 0 3rem;
+}
+section.comments .comment .head .profileArea {
+  display: flex;
+  gap: 1rem;
+}
+section.comments .comment .head .profileArea .avatar {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.commentName {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+section.comments .comment .head .stars {
+  color: var(--color-primary);
+}
+section.comments .comment .head .stars i {
+  font-size: 1.7rem;
+}
+section.comments .comment p {
+  padding: 0 2rem;
+}
+
+
+/* ===== Contact ===== */
+
+section.contact {
+  background-image: url("./images/IMG_0151.JPG");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 0;
+  max-width: 100vw;
+}
+section.contact .overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10rem 0 7rem;
+}
+section.contact .container {
+  width: 40%;
+}
+section.contact .container h1 {
+  margin: 0;
+  color: var(--color-white);
+}
+section.contact .container p {
+  text-align: center;
+  color: var(--color-white);
+  opacity: .8;
+  margin-top: .8rem;
+}
+section.contact form {
+  margin-top: 4rem;
+}
+section.contact form input, section.contact form textarea {
+  display: block;
+  width: 100%;
+  margin: 2rem;
+  padding: 2rem;
+  border: 1px solid var(--color-white);
+  background-color: transparent;
+  color: var(--color-white);
+  transition: var(--transition);
+  font-family: iranyekan !important;
+} 
+section.contact form input:focus, section.contact form textarea:focus {
+  background-color: var(--color-white);
+  color: var(--color-black);
+
+}
+section.contact form input::placeholder, section.contact form textarea::placeholder {
+  color: var(--color-white);
+
+}
+section.contact form .btn {
+width: 14rem;
+border: none;
+background-color: var(--color-white);
+color: var(--color-black);
+margin: 3rem auto 0;
+font-size: 1.8rem;
+font-weight: bold;
+}
+
+section.contact form .btn:hover {
+  background-color: var(--color-primary);
+  cursor: pointer;
+  color: var(--color-white);
+}
+section.contact form textarea {
+  height: 14rem;
+}
+
+
+/* ===== footer ===== */
+
+footer {
+  padding-top: 7rem;
+}
+footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+footer .container ul {
+  display: flex;
+  gap: 5rem;
+}
+footer .container ul a {
+  color: var(--color-dark);
+  transition: var(--transition);
+}
+footer .container ul a:hover {
+  color: var(--color-primary);
+}
+footer .container .socials {
+  display: flex;
+  gap: 4rem;
+}
+footer h3 {
+  color: var(--color-primary);
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+footer .container .socials a {
+  font-size: 2rem;
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  padding: 1rem;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--transition);
+}
+footer .container .socials a:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+footer .copyRight {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-align: center;
+  margin-top: 7rem;
+  padding: 2rem 0;
+  font-size: 1.4rem;
+}
